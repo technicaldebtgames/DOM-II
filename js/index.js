@@ -26,6 +26,21 @@ let beachImg = allImgs[3];
 
 //dblclick
 
+function mouseDblClickFunc(event) {
+
+    if(event.target.style.filter == 'blur(5px)') {
+
+        event.target.style.filter = '';
+
+    }
+    else {
+
+        event.target.style.filter = 'blur(5px)';
+
+    }
+
+}
+
 //mousedown
 
 function mouseDownFunc(event) {
@@ -52,6 +67,12 @@ function mouseEnterFunc(event) {
 
 //mouseover
 
+function mouseOverFunc(event) {
+
+    event.target.style.width = '250px';
+
+}
+
 //mouseleave
 
 function mouseLeaveFunc(event) {
@@ -61,6 +82,12 @@ function mouseLeaveFunc(event) {
 }
 
 //mouseout
+
+function mouseOutFunc(event) {
+
+    event.target.style.width = '100%';
+
+}
 
 //mousemove
 
@@ -77,3 +104,8 @@ busImg.addEventListener('mouseleave', mouseLeaveFunc);
 
 beachImg.addEventListener('mousedown', mouseDownFunc);
 beachImg.addEventListener('mouseup', mouseUpFunc);
+
+mapImg.addEventListener('dblclick', mouseDblClickFunc);
+
+canalImg.addEventListener('mouseover', mouseOverFunc);
+canalImg.addEventListener('mouseout', mouseOutFunc);
