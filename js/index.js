@@ -1,8 +1,12 @@
 // Your code goes here
 
+
+
 // Set some stuff
 
 let hueRotate = 0;
+
+
 
 // Grab some stuff
 
@@ -13,20 +17,9 @@ let mapImg = allImgs[1];
 let canalImg = allImgs[2];
 let beachImg = allImgs[3];
 
-// Add some (10) event listeners
 
-    /*  
-    filter: blur(5px);
-    filter: brightness(0.4);
-    filter: contrast(200%);
-    filter: drop-shadow(16px 16px 20px blue);
-    filter: grayscale(50%);
-    filter: hue-rotate(90deg);
-    filter: invert(75%);
-    filter: opacity(25%);
-    filter: saturate(30%);
-    filter: sepia(60%); 
-    */
+
+// Create (10) event listener funcs
 
 //dblclick
 
@@ -95,7 +88,21 @@ function mouseOutFunc(event) {
 
 //mousemove
 
-//keypress
+function mouseMoveFunc(event) {
+
+    let rot = Math.random() * 360;
+
+    event.target.style.filter = 'hue-rotate(' + rot + 'deg)';
+
+}
+
+//contextmenu
+
+function contextMenuFunc(event) {
+
+    event.target.style.width = '0px'; // "deletes" the image (from view)
+
+}
 
 //load
 
@@ -120,7 +127,16 @@ mapImg.addEventListener('dblclick', mouseDblClickFunc);
 canalImg.addEventListener('mouseover', mouseOverFunc);
 canalImg.addEventListener('mouseout', mouseOutFunc);
 
-busImg.addEventListener('load', loadFunc);
-beachImg.addEventListener('load', loadFunc);
-mapImg.addEventListener('load', loadFunc);
-canalImg.addEventListener('load', loadFunc);
+busImg.addEventListener('load', loadFunc);       // These are strange, in chrome they sometimes
+beachImg.addEventListener('load', loadFunc);     // don't seem to trigger. It might be caused by
+mapImg.addEventListener('load', loadFunc);       // debugging or something. Not sure.
+canalImg.addEventListener('load', loadFunc);     // Maybe it has to do with load vs loadeddata or
+                                                 // something?
+
+busImg.addEventListener('mousemove', mouseMoveFunc);
+beachImg.addEventListener('mousemove', mouseMoveFunc);
+canalImg.addEventListener('mousemove', mouseMoveFunc);
+
+busImg.addEventListener('contextmenu', contextMenuFunc);
+beachImg.addEventListener('contextmenu', contextMenuFunc);
+mapImg.addEventListener('contextmenu', contextMenuFunc);
