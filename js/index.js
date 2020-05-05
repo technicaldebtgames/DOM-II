@@ -1,5 +1,9 @@
 // Your code goes here
 
+// Set some stuff
+
+let hueRotate = 0;
+
 // Grab some stuff
 
 let allImgs = document.querySelectorAll("img");
@@ -91,9 +95,15 @@ function mouseOutFunc(event) {
 
 //mousemove
 
-//wheel
-
 //keypress
+
+//load
+
+function loadFunc(event) {
+
+    event.target.style.filter = 'invert(100%)';
+
+}
 
 
 
@@ -109,3 +119,8 @@ mapImg.addEventListener('dblclick', mouseDblClickFunc);
 
 canalImg.addEventListener('mouseover', mouseOverFunc);
 canalImg.addEventListener('mouseout', mouseOutFunc);
+
+busImg.addEventListener('load', loadFunc);
+beachImg.addEventListener('load', loadFunc);
+mapImg.addEventListener('load', loadFunc);
+canalImg.addEventListener('load', loadFunc);
