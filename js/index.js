@@ -17,6 +17,10 @@ let mapImg = allImgs[1];
 let canalImg = allImgs[2];
 let beachImg = allImgs[3];
 
+let nav = document.querySelector("nav");
+
+let navItems = nav.querySelectorAll("a");
+
 
 
 // Create (10) event listener funcs
@@ -112,6 +116,12 @@ function loadFunc(event) {
 
 }
 
+function preventClick(event) {
+
+    event.preventDefault();
+
+}
+
 
 
 // Add to elements
@@ -140,3 +150,13 @@ canalImg.addEventListener('mousemove', mouseMoveFunc);
 busImg.addEventListener('contextmenu', contextMenuFunc);
 beachImg.addEventListener('contextmenu', contextMenuFunc);
 mapImg.addEventListener('contextmenu', contextMenuFunc);
+
+
+
+// Stop nav items with preventDefault()
+
+for (let i = 0; i < navItems.length; i++) {
+
+    navItems[i].addEventListener('click', preventClick);
+
+}
