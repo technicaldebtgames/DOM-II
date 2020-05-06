@@ -160,3 +160,22 @@ for (let i = 0; i < navItems.length; i++) {
     navItems[i].addEventListener('click', preventClick);
 
 }
+
+
+
+// Get all nodes and add a new contextmenu action and stopPropagation
+
+let allNodes = document.querySelectorAll('*');
+
+function contextMenuFunc2(event) {
+
+    event.target.style.color = 'red'; // "deletes" the image (from view)
+    event.stopPropagation();
+
+}
+
+for (let i = 0; i < allNodes.length; i++) {
+
+    allNodes[i].addEventListener('contextMenu', contextMenuFunc2);
+
+}
