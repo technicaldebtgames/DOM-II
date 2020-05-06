@@ -164,18 +164,20 @@ for (let i = 0; i < navItems.length; i++) {
 
 
 // Get all nodes and add a new contextmenu action and stopPropagation
+// (I think this is what they wanted us to do?)
 
 let allNodes = document.querySelectorAll('*');
 
 function contextMenuFunc2(event) {
 
-    event.target.style.color = 'red'; // "deletes" the image (from view)
+    event.target.style.color = 'red';
     event.stopPropagation();
+    console.log("Event propagation stop trigger happened while every element has a contextmenu event.")
 
 }
 
 for (let i = 0; i < allNodes.length; i++) {
 
-    allNodes[i].addEventListener('contextMenu', contextMenuFunc2);
+    allNodes[i].addEventListener('contextmenu', contextMenuFunc2);
 
 }
